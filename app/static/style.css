@@ -1,0 +1,190 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --accent-color: #bb86fc;
+    --secondary-color: #03dac6;
+    --error-color: #cf6679;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: var(--card-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+.logo a {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-left: 0;
+}
+
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Auth Styles */
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    background: #333;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 4px;
+}
+
+.btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--accent-color);
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Game Styles */
+.mash-container {
+    text-align: center;
+}
+
+.battle-ground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.meme-card {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.meme-card img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+.vs {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.vote-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background: var(--secondary-color);
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.vote-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Leaderboard Styles */
+.leaderboard-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background: var(--card-bg);
+}
+
+.leaderboard-container th, .leaderboard-container td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.leaderboard-container th {
+    background: #2c2c2c;
+    color: var(--accent-color);
+}
+
+.leaderboard-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+/* Alerts */
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+.alert-danger {
+    background: var(--error-color);
+    color: #fff;
+}
+.alert-success {
+    background: var(--secondary-color);
+    color: #000;
+}

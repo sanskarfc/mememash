@@ -1,0 +1,89 @@
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [14/Dec/2025 15:59:09] "GET /register HTTP/1.1" 200 -
+127.0.0.1 - - [14/Dec/2025 15:59:09] "GET /static/style.css HTTP/1.1" 200 -
+[2025-12-14 15:59:10,372] ERROR in app: Exception on /register [POST]
+Traceback (most recent call last):
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app/auth.py", line 36, in register
+    user_exists = User.query.filter_by(username=username).first()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+           ^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.password_hash AS user_password_hash
+FROM user
+WHERE user.username = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('frontend_tester', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+127.0.0.1 - - [14/Dec/2025 15:59:10] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+127.0.0.1 - - [14/Dec/2025 16:00:16] "GET /register HTTP/1.1" 200 -
+127.0.0.1 - - [14/Dec/2025 16:00:16] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [14/Dec/2025 16:00:16] "[32mPOST /register HTTP/1.1[0m" 302 -
+127.0.0.1 - - [14/Dec/2025 16:00:16] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [14/Dec/2025 16:00:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [14/Dec/2025 16:00:17] "[32mPOST /login HTTP/1.1[0m" 302 -
+127.0.0.1 - - [14/Dec/2025 16:00:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [14/Dec/2025 16:00:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [14/Dec/2025 16:00:17] "[32mPOST /vote HTTP/1.1[0m" 302 -
+127.0.0.1 - - [14/Dec/2025 16:00:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [14/Dec/2025 16:00:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [14/Dec/2025 16:00:17] "GET /leaderboard HTTP/1.1" 200 -
+127.0.0.1 - - [14/Dec/2025 16:00:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
